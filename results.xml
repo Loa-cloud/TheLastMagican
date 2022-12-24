@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<testsuites failures="0" name="TestXML" tests="2" time="0.056">
+	<testsuite name="My Example Test" failures="0"  tests="2" time="0">
+		<testcase name=" parameterized example" time="0"></testcase>
+		<testcase name="My Example Test Method" time="0"></testcase>
+	</testsuite>
+
+	<testsuite name="My Example Test" failures="0"  tests="2" time="0">
+		<testcase name=" parameterized example" time="0"></testcase>
+		<testcase name="My Example Test Method" time="0"></testcase>
+	</testsuite>
+
+</testsuites>
