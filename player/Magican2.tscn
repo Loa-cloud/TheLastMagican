@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://player/Class Magican.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/маг2.png" type="Texture" id=2]
+[ext_resource path="res://player/Magican2.gd" type="Script" id=3]
+
+[node name="Magican2" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="5"]
+texture = ExtResource( 2 )
+
+[connection signal="area_entered" from="player_area" to="." method="_on_player_area_area_entered"]
