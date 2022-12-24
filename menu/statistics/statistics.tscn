@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://menu/items/expanded.png" type="Texture" id=1]
+[ext_resource path="res://menu/items/m_Item2.png" type="Texture" id=2]
+[ext_resource path="res://menu/items/m_monster.png" type="Texture" id=3]
+[ext_resource path="res://menu/items/m_time.png" type="Texture" id=4]
+[ext_resource path="res://menu/items/m_star.png" type="Texture" id=5]
+[ext_resource path="res://menu/statistics/statistics.gd" type="Script" id=6]
+[ext_resource path="res://menu/items/m_Home.png" type="Texture" id=7]
+[ext_resource path="res://menu/items/m_Item3.png" type="Texture" id=8]
+[ext_resource path="res://style/Fonts/deafult_font.tres" type="DynamicFont" id=9]
+[ext_resource path="res://menu/items/m_back.png" type="Texture" id=10]
+
+[node name="statistics" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+margin_left = 84.0
+margin_top = 7.0
+margin_right = 234.0
+margin_bottom = 27.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="background/TextureRect2"]
+margin_left = 1.0
+margin_right = 149.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Вы умерли"
+align = 1
+
+[node name="repeat" type="Button" parent="background"]
+margin_left = 271.0
+margin_top = 134.0
+margin_right = 303.0
+margin_bottom = 160.0
+icon = ExtResource( 10 )
+flat = true
+
+[node name="main_menu" type="Button" parent="background"]
+margin_left = 20.0
+margin_top = 133.0
+margin_right = 52.0
+margin_bottom = 159.0
+icon = ExtResource( 7 )
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -44.5
+margin_right = 75.0
+margin_bottom = 65.5
+texture = ExtResource( 8 )
+
+[node name="monster" type="TextureRect" parent="background/TextureRect"]
+margin_left = 14.0
+margin_top = 49.0
+margin_right = 34.0
+margin_bottom = 69.0
+texture = ExtResource( 3 )
+
+[node name="Label_monster" type="Label" parent="background/TextureRect"]
+margin_left = 46.0
+margin_top = 47.0
+margin_right = 108.0
+margin_bottom = 67.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Вы умерли"
+
+[node name="level" type="TextureRect" parent="background/TextureRect"]
+margin_left = 14.0
+margin_top = 80.0
+margin_right = 34.0
+margin_bottom = 100.0
+texture = ExtResource( 5 )
+
+[node name="Label_level" type="Label" parent="background/TextureRect"]
+margin_left = 46.0
+margin_top = 79.0
+margin_right = 108.0
+margin_bottom = 99.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Вы умерли"
+
+[node name="time" type="TextureRect" parent="background/TextureRect"]
+margin_left = 14.0
+margin_top = 16.0
+margin_right = 34.0
+margin_bottom = 36.0
+texture = ExtResource( 4 )
+
+[node name="Label_time" type="Label" parent="background/TextureRect"]
+margin_left = 46.0
+margin_top = 17.0
+margin_right = 108.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Вы умерли"
+
+[connection signal="get_statistic" from="." to="." method="_on_statistics_get_statistic"]
+[connection signal="pressed" from="background/repeat" to="." method="_on_repeat_pressed"]
+[connection signal="pressed" from="background/main_menu" to="." method="_on_main_menu_pressed"]

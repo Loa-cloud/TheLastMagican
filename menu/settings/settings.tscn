@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://menu/items/m_Icon_Expand.png" type="Texture" id=1]
+[ext_resource path="res://menu/items/expanded.png" type="Texture" id=2]
+[ext_resource path="res://menu/items/m_Icon_SoundOn.png" type="Texture" id=3]
+[ext_resource path="res://menu/items/m_Item2.png" type="Texture" id=4]
+[ext_resource path="res://menu/settings/settings.gd" type="Script" id=5]
+[ext_resource path="res://menu/items/m_back.png" type="Texture" id=6]
+[ext_resource path="res://menu/items/m_Item3.png" type="Texture" id=7]
+[ext_resource path="res://style/Fonts/deafult_font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://style/Fonts/font2.tres" type="DynamicFont" id=9]
+
+[node name="settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back" type="Button" parent="background"]
+margin_left = 21.0
+margin_top = 126.0
+margin_right = 53.0
+margin_bottom = 152.0
+icon = ExtResource( 6 )
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+margin_left = 85.0
+margin_top = 46.0
+margin_right = 235.0
+margin_bottom = 156.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="window" type="OptionButton" parent="background/TextureRect2"]
+margin_left = 49.0
+margin_top = 74.0
+margin_right = 128.0
+margin_bottom = 92.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "1920*1080"
+clip_text = true
+items = [ "1920*1080", null, false, 1, null, "1600*1200", null, false, 2, null ]
+selected = 0
+
+[node name="window" type="TextureRect" parent="background/TextureRect2/window"]
+margin_left = -33.0
+margin_top = -2.0
+margin_right = -13.0
+margin_bottom = 19.0
+texture = ExtResource( 1 )
+
+[node name="sound" type="HSlider" parent="background/TextureRect2"]
+margin_left = 47.0
+margin_top = 44.0
+margin_right = 128.0
+margin_bottom = 60.0
+max_value = 30.0
+value = 10.0
+allow_lesser = true
+
+[node name="sound" type="TextureRect" parent="background/TextureRect2/sound"]
+margin_left = -31.0
+margin_top = -2.0
+margin_right = -11.0
+margin_bottom = 18.0
+texture = ExtResource( 3 )
+
+[node name="CheckBox" type="CheckBox" parent="background/TextureRect2"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 36.0
+margin_bottom = 36.0
+
+[node name="Label" type="Label" parent="background/TextureRect2/CheckBox"]
+margin_left = 35.0
+margin_top = 1.0
+margin_right = 114.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Режим архимага"
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+margin_left = 84.0
+margin_top = 11.0
+margin_right = 234.0
+margin_bottom = 31.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="background/TextureRect"]
+margin_left = 46.0
+margin_right = 103.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Настройки"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="background/back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="background/TextureRect2/window" to="." method="_on_window_item_selected"]
+[connection signal="pressed" from="background/TextureRect2/window" to="." method="_on_window_pressed"]
+[connection signal="value_changed" from="background/TextureRect2/sound" to="." method="_on_sound_value_changed"]
+[connection signal="pressed" from="background/TextureRect2/CheckBox" to="." method="_on_CheckBox_pressed"]

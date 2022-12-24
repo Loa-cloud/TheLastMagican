@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://menu/items/expanded.png" type="Texture" id=1]
+[ext_resource path="res://menu/items/Icon_Play.png" type="Texture" id=2]
+[ext_resource path="res://menu/items/Home.png" type="Texture" id=3]
+[ext_resource path="res://menu/pause/pause.gd" type="Script" id=4]
+[ext_resource path="res://menu/items/m_Item2.png" type="Texture" id=5]
+[ext_resource path="res://style/Fonts/deafult_font.tres" type="DynamicFont" id=6]
+
+[node name="pause" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -74.0
+margin_top = 8.0
+margin_right = 76.0
+margin_bottom = 28.0
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="background/TextureRect"]
+margin_left = 56.0
+margin_right = 96.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Пауза"
+
+[node name="play" type="Button" parent="background"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 72.0
+margin_top = -10.5
+margin_right = 124.0
+margin_bottom = 35.5
+icon = ExtResource( 2 )
+flat = true
+
+[node name="main_menu" type="Button" parent="background"]
+margin_left = 198.0
+margin_top = 79.0
+margin_right = 250.0
+margin_bottom = 125.0
+icon = ExtResource( 3 )
+flat = true
+
+[connection signal="pressed" from="background/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="background/main_menu" to="." method="_on_main_menu_pressed"]

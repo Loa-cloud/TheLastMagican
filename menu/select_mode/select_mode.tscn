@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://menu/items/Item2.png" type="Texture" id=1]
+[ext_resource path="res://menu/items/expanded.png" type="Texture" id=2]
+[ext_resource path="res://menu/items/m_Item2.png" type="Texture" id=3]
+[ext_resource path="res://menu/items/m_back.png" type="Texture" id=4]
+[ext_resource path="res://menu/select_mode/select_mode.gd" type="Script" id=5]
+[ext_resource path="res://menu/items/m_choose.png" type="Texture" id=6]
+[ext_resource path="res://menu/items/m_Item3.png" type="Texture" id=7]
+[ext_resource path="res://style/Fonts/deafult_font.tres" type="DynamicFont" id=8]
+
+[node name="select_mode" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_right = 30.0
+margin_bottom = 18.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -91.0
+margin_top = 9.0
+margin_right = 59.0
+margin_bottom = 29.0
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="background/TextureRect"]
+margin_left = 29.0
+margin_top = -1.0
+margin_right = 121.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Выберите режим"
+
+[node name="choose" type="Button" parent="background"]
+margin_left = 267.0
+margin_top = 127.0
+margin_right = 299.0
+margin_bottom = 153.0
+icon = ExtResource( 6 )
+flat = true
+
+[node name="back" type="Button" parent="background"]
+margin_left = 22.0
+margin_top = 126.0
+margin_right = 54.0
+margin_bottom = 152.0
+icon = ExtResource( 4 )
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -54.5
+margin_right = 60.0
+margin_bottom = 55.5
+texture = ExtResource( 7 )
+
+[node name="endless" type="Button" parent="background/TextureRect2"]
+margin_left = 19.0
+margin_top = 17.0
+margin_right = 131.0
+margin_bottom = 43.0
+icon = ExtResource( 1 )
+flat = true
+
+[node name="endless" type="Label" parent="background/TextureRect2/endless"]
+margin_left = 21.0
+margin_top = 2.0
+margin_right = 92.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Бесконечный"
+
+[node name="standart" type="Button" parent="background/TextureRect2"]
+margin_left = 19.0
+margin_top = 60.0
+margin_right = 131.0
+margin_bottom = 86.0
+icon = ExtResource( 1 )
+flat = true
+
+[node name="standart" type="Label" parent="background/TextureRect2/standart"]
+margin_left = 21.0
+margin_top = 2.0
+margin_right = 91.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Стандартный"
+
+[connection signal="pressed" from="background/choose" to="." method="_on_choose_pressed"]
+[connection signal="pressed" from="background/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="background/TextureRect2/endless" to="." method="_on_endless_pressed"]
+[connection signal="pressed" from="background/TextureRect2/standart" to="." method="_on_standart_pressed"]

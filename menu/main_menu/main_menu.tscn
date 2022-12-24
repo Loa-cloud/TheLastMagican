@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://menu/items/expanded.png" type="Texture" id=1]
+[ext_resource path="res://menu/items/m_Icon_Exit.png" type="Texture" id=2]
+[ext_resource path="res://menu/items/m_Icon_Settings.png" type="Texture" id=3]
+[ext_resource path="res://menu/items/m_Icon_Play.png" type="Texture" id=4]
+[ext_resource path="res://menu/main_menu/main_menu.gd" type="Script" id=5]
+[ext_resource path="res://menu/items/m_Item2.png" type="Texture" id=6]
+[ext_resource path="res://menu/items/m_Item3.png" type="Texture" id=7]
+[ext_resource path="res://style/Fonts/deafult_font.tres" type="DynamicFont" id=8]
+
+[sub_resource type="Theme" id=1]
+
+[node name="main_menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+margin_left = 82.0
+margin_top = 12.0
+margin_right = 232.0
+margin_bottom = 32.0
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="background/TextureRect"]
+light_mask = 0
+margin_left = 28.0
+margin_right = 147.0
+margin_bottom = 20.0
+theme = SubResource( 1 )
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "The Last Magican"
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+margin_left = 82.0
+margin_top = 47.0
+margin_right = 232.0
+margin_bottom = 157.0
+texture = ExtResource( 7 )
+
+[node name="new_game" type="Button" parent="background/TextureRect2"]
+margin_left = 39.0
+margin_top = 12.0
+margin_right = 118.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Новая игра"
+flat = true
+
+[node name="new_game" type="TextureRect" parent="background/TextureRect2/new_game"]
+margin_left = -21.0
+margin_top = 4.0
+margin_right = -1.0
+margin_bottom = 24.0
+texture = ExtResource( 4 )
+
+[node name="options" type="Button" parent="background/TextureRect2"]
+margin_left = 43.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 64.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Настройки"
+flat = true
+
+[node name="options" type="TextureRect" parent="background/TextureRect2/options"]
+margin_left = -26.0
+margin_top = 5.0
+margin_right = -6.0
+margin_bottom = 25.0
+texture = ExtResource( 3 )
+
+[node name="exit" type="Button" parent="background/TextureRect2"]
+margin_left = 44.0
+margin_top = 65.0
+margin_right = 93.0
+margin_bottom = 91.0
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Выход"
+flat = true
+
+[node name="exit" type="TextureRect" parent="background/TextureRect2/exit"]
+margin_left = -27.0
+margin_top = 4.0
+margin_right = -7.0
+margin_bottom = 24.0
+texture = ExtResource( 2 )
+
+[connection signal="exit" from="." to="." method="_on_main_menu_exit"]
+[connection signal="new_game" from="." to="." method="_on_main_menu_new_game"]
+[connection signal="settings" from="." to="." method="_on_main_menu_settings"]
+[connection signal="pressed" from="background/TextureRect2/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="background/TextureRect2/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="background/TextureRect2/exit" to="." method="_on_exit_pressed"]

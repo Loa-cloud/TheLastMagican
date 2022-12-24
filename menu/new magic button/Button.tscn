@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://style/Fonts/font3.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menu/items/Item6.png" type="Texture" id=2]
+[ext_resource path="res://menu/new magic button/Button.gd" type="Script" id=3]
+
+[node name="Button" type="Button"]
+visible = false
+margin_left = 225.0
+margin_top = 148.0
+margin_right = 317.0
+margin_bottom = 174.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.282353, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Выбери магию"
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+script = ExtResource( 3 )
